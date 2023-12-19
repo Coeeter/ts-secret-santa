@@ -16,7 +16,7 @@ export default async function Home({
     answer?: string;
   };
 }) {
-  const code = await readFile(process.cwd() + '/src/app/code.js', 'utf-8');
+  const code = await readFile(process.cwd() + '/src/app/code.txt', 'utf-8');
   const dontNeedType = !!(success || failure);
 
   const action = async (formData: FormData) => {
