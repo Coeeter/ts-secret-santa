@@ -64,17 +64,19 @@ export default async function Home({
       </main>
       <form
         action={action}
-        className="absolute bottom-0 w-full rounded-md bg-muted p-2 space-y-2"
+        className="absolute bottom-0 w-full rounded-md bg-muted space-y-2"
       >
-        <label htmlFor="answer">Your Answer?</label>
-        <div className="flex gap-6">
-          <Input
-            defaultValue={answer}
-            id="answer"
-            name="answer"
-            placeholder="answer"
-          />
-          <Button type="submit">Submit</Button>
+        <div className="container mx-auto">
+          <label htmlFor="answer">Your Answer?</label>
+          <div className="flex gap-6">
+            <Input
+              defaultValue={answer}
+              id="answer"
+              name="answer"
+              placeholder="answer"
+            />
+            <Button type="submit">Submit</Button>
+          </div>
         </div>
       </form>
     </div>
