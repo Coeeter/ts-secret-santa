@@ -2,10 +2,11 @@ import { ReadOnlyCode } from '@/components/readonlycode';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { redirect } from 'next/navigation';
+import { RedirectType, redirect } from 'next/navigation';
 import { AlertCircle, PartyPopper } from 'lucide-react';
 import { Confetti } from '@/components/confetti';
 import { code } from './code';
+import { Label } from '@/components/ui/label';
 
 export default async function Home({
   searchParams: { success, failure, answer },
@@ -26,9 +27,9 @@ export default async function Home({
       answer === 'redmart box' ||
       answer === 'The place of the present is: redmart box'
     ) {
-      redirect(`?answer=${answer}&success=true`);
+      redirect(`?answer=${answer}&success=true`, RedirectType.replace);
     }
-    redirect(`?answer=${answer}&failure=true`);
+    redirect(`?answer=${answer}&failure=true`, RedirectType.replace);
   };
 
   return (
@@ -69,7 +70,7 @@ export default async function Home({
         className="fixed bottom-0 py-3 w-full rounded-t-md bg-muted z-10"
       >
         <div className="container mx-auto flex flex-col gap-2">
-          <label htmlFor="answer">Your Answer?</label>
+          <Label htmlFor="answer">Your Answer?</Label>
           <div className="flex gap-6 items-center">
             <Input
               defaultValue={answer}
