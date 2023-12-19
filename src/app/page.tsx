@@ -32,48 +32,51 @@ export default async function Home({
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full h-full">
       <Confetti success={!!success} />
-      <main className="container mx-auto p-3 h-full">
-        <div className="mb-5">
-          {success && (
-            <Alert className="bg-green-700">
-              <PartyPopper />
-              <AlertTitle>Thats Correct!</AlertTitle>
-              <AlertDescription>
-                You did it! All is left to get the present!
-              </AlertDescription>
-            </Alert>
-          )}
-          {failure && (
-            <Alert className="bg-red-700">
-              <AlertCircle />
-              <AlertTitle>That's Wrong!</AlertTitle>
-              <AlertDescription>
-                Ooops! Don't give up! Try again?
-              </AlertDescription>
-            </Alert>
-          )}
+      <main className="py-3 h-[calc(100%-96px)] overflow-auto">
+        <div className="container mx-auto">
+          <div className="mb-5">
+            {success && (
+              <Alert className="bg-green-700 z-10">
+                <PartyPopper />
+                <AlertTitle>Thats Correct!</AlertTitle>
+                <AlertDescription>
+                  You did it! All is left to get the present!
+                </AlertDescription>
+              </Alert>
+            )}
+            {failure && (
+              <Alert className="bg-red-700 z-10">
+                <AlertCircle />
+                <AlertTitle>That's Wrong!</AlertTitle>
+                <AlertDescription>
+                  Ooops! Don't give up! Try again?
+                </AlertDescription>
+              </Alert>
+            )}
+          </div>
+          <h1 className="text-4xl font-bold mb-2">Can you solve this code?</h1>
+          <p className="text-muted-foreground">
+            Solve this code to get the location of your present
+          </p>
+          <p className="text-muted-foreground mb-5">P.S. Don't Cheat 😜</p>
+          <ReadOnlyCode value={code} type={!dontNeedType} />
         </div>
-        <h1 className="text-4xl font-bold mb-2">Can you solve this code?</h1>
-        <p className="text-muted-foreground">
-          Solve this code to get the location of your present
-        </p>
-        <p className="text-muted-foreground mb-5">P.S. Don't Cheat 😜</p>
-        <ReadOnlyCode value={code} type={!dontNeedType} />
       </main>
       <form
         action={action}
-        className="absolute bottom-0 w-full rounded-md bg-muted space-y-2"
+        className="fixed bottom-0 py-3 w-full rounded-t-md bg-muted z-10"
       >
-        <div className="container mx-auto">
+        <div className="container mx-auto flex flex-col gap-2">
           <label htmlFor="answer">Your Answer?</label>
-          <div className="flex gap-6">
+          <div className="flex gap-6 items-center">
             <Input
               defaultValue={answer}
               id="answer"
               name="answer"
-              placeholder="answer"
+              placeholder="Write your answer here"
+              className="h-10"
             />
             <Button type="submit">Submit</Button>
           </div>

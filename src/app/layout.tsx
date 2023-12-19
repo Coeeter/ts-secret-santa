@@ -19,8 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full">
-      <body className={cn('dark h-full', poppins.className)}>{children}</body>
+    <html lang="en" className="h-full overflow-hidden">
+      <body className={cn('dark h-full overflow-hidden', poppins.className)}>
+        {children}
+      </body>
     </html>
   );
 }

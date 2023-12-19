@@ -1,4 +1,5 @@
 'use client';
+
 import ReactCodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import useTypeWriter from 'react-typewriter-hook';
@@ -21,7 +22,7 @@ export const ReadOnlyCode = (props: Props) => {
       readOnly
       theme={'dark'}
       editable={false}
-      className="pointer-events-none select-none"
+      className="select-none"
       value={typing ?? undefined}
     />
   );
