@@ -2,10 +2,10 @@ import { ReadOnlyCode } from '@/components/readonlycode';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { readFile } from 'fs/promises';
 import { redirect } from 'next/navigation';
 import { AlertCircle, PartyPopper } from 'lucide-react';
 import { Confetti } from '@/components/confetti';
+import { code } from './code';
 
 export default async function Home({
   searchParams: { success, failure, answer },
@@ -16,7 +16,6 @@ export default async function Home({
     answer?: string;
   };
 }) {
-  const code = await readFile(process.cwd() + '/src/app/code.txt', 'utf-8');
   const dontNeedType = !!(success || failure);
 
   const action = async (formData: FormData) => {

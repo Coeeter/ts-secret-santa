@@ -1,4 +1,4 @@
-const colors = ['red', 'blue', 'yellow'];
+export const code = `const colors = ['red', 'blue', 'yellow'];
 const instruments = ['violin', 'xylophone', 'drum'];
 
 const fn = (val, options = {}) => {
@@ -28,5 +28,5 @@ const secondWord = fn(
 );
 
 console.log(
-  `The place of the present is: ${s.str2 + s.str3 + s.str1} ${secondWord}`
-);
+  \`The place of the present is: \${s.str2 + s.str3 + s.str1} \${secondWord}\`
+);`;
